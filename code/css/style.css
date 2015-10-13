@@ -1,0 +1,48 @@
+@font-face {
+	src:url(Fonts/COELCF__.TTF);
+	font-family: CoelnischeCurrentFraktur;
+}
+
+h1 {
+	margin: 0 auto;
+	text-align: center;
+	font-family: CoelnischeCurrentFraktur;
+
+}
+
+body {
+	background-color: #bf7171;
+
+}
+
+.leftColumn {
+	border: 2px solid white;
+	/*height: 300px;
+	width:  100px;*/
+	float: left;
+	margin-right: 10px;
+	/*position: absolute;*/
+	margin-left: 130px;
+	display: inline-block;
+}
+
+.rightColumn {
+	float: left;
+	border: 2px solid white;
+	margin-top: 25px;
+	margin-left: 250px;
+	/*position: absolute;*/
+	display: inline-block;
+
+}
+
+td {
+	padding: 3px;
+	text-align: center;
+}
+
+table {
+	border: 2px solid white;
+	float: left;
+	margin-top: 30px;
+}
