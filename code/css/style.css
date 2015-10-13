@@ -1,38 +1,40 @@
 @font-face {
+	
 	src:url(Fonts/COELCF__.TTF);
 	font-family: CoelnischeCurrentFraktur;
 }
 
 h1 {
+	font-size: 40px;
 	margin: 0 auto;
 	text-align: center;
 	font-family: CoelnischeCurrentFraktur;
-
 }
 
 body {
 	background-color: #bf7171;
+}
 
+.hidden {
+	display: none;
 }
 
 .leftColumn {
-	border: 2px solid white;
-	/*height: 300px;
-	width:  100px;*/
+	
+	/*border: 2px solid white;*/
 	float: left;
-	margin-right: 10px;
-	/*position: absolute;*/
+	margin-right: 5px;
 	margin-left: 130px;
-	display: inline-block;
+	display: hidden;
 }
 
 .rightColumn {
 	float: left;
-	border: 2px solid white;
-	margin-top: 25px;
+	/*border: 2px solid white;*/
+	margin-top: 10px;
 	margin-left: 250px;
 	/*position: absolute;*/
-	display: inline-block;
+	display: hidden;
 
 }
 
@@ -42,7 +44,61 @@ td {
 }
 
 table {
-	border: 2px solid white;
+	/*border: 2px solid white;*/
 	float: left;
-	margin-top: 30px;
+	margin-top: 5px;
 }
+
+.alphabet {
+	
+	font-size: 26px;
+	font-style: bold;
+	margin-left: 60px;
+	padding: 5px;
+	/*border: 2px solid white;*/
+	text-align: center;
+	float: left;
+	text-decoration: underline;
+}
+
+footer {
+	text-align: center;
+	float: left;
+}
+
+.avatar {
+	border-radius: 3px;
+	display: inline-block;
+	margin: 3px;
+	text-align: center;
+	padding: 5px;
+	/*border: 2px solid white;*/
+}
+
+.avTable {
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+}
+
+.choose {
+	font-family: Helvetica;
+	padding: 3px;
+	margin: 3px;
+	/*border: 2px solid white;*/
+	text-align: center;
+}
+
+.avatar:hover {
+  background-color: #bc3737;
+  color: white;
+}
+
+.avatar.empty:hover {
+  background-color: white;
+}
+
+
+
+
+
