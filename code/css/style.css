@@ -9,6 +9,7 @@ h1 {
 	margin: 0 auto;
 	text-align: center;
 	font-family: CoelnischeCurrentFraktur;
+	/*border: 2px solid white;*/
 }
 
 body {
@@ -20,22 +21,20 @@ body {
 }
 
 .leftColumn {
-	
+	margin-right: 0px;
 	/*border: 2px solid white;*/
 	float: left;
-	margin-right: 5px;
 	margin-left: 130px;
-	display: hidden;
+	display: inline;
 }
 
 .rightColumn {
 	float: left;
 	/*border: 2px solid white;*/
-	margin-top: 10px;
+	margin-top: 2px;
 	margin-left: 250px;
 	/*position: absolute;*/
 	display: hidden;
-
 }
 
 td {
@@ -46,18 +45,25 @@ td {
 table {
 	/*border: 2px solid white;*/
 	float: left;
-	margin-top: 5px;
+	margin-top: 2px;
 }
 
 .alphabet {
-	
-	font-size: 26px;
+	font-size: 15px;
 	font-style: bold;
-	margin-left: 60px;
+	margin-left: 15px;
 	padding: 5px;
 	/*border: 2px solid white;*/
 	text-align: center;
 	float: left;
+}
+.guessWord {
+	padding: 5px;
+	font-size: 25px;
+	font-style: bold;
+	/*border: 2px solid white;*/
+	text-align: center;
+	display: inline-block;
 	text-decoration: underline;
 }
 
@@ -69,13 +75,13 @@ footer {
 .avatar {
 	border-radius: 3px;
 	display: inline-block;
-	margin: 3px;
+	margin: 0px;
 	text-align: center;
 	padding: 5px;
 	/*border: 2px solid white;*/
 }
 
-.avTable {
+#avTable {
 	margin: 5px;
 	padding: 5px;
 	text-align: center;
@@ -97,6 +103,26 @@ footer {
 .avatar.empty:hover {
   background-color: white;
 }
+
+#getWordButton {
+	text-align: center;
+	border: 2px solid white;
+	display: inline-block;
+}
+
+#AV-1 {
+
+}
+
+#AV-2 {
+
+}
+
+#AV-3 {
+
+}
+
+
 
 
 
