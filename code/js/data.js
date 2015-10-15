@@ -134,19 +134,38 @@ function hangman() {
 	$('#gallows').attr("src", images[chosenPlayer].gallows[countLoses]);
 	$('#character').attr("src", images[chosenPlayer].avatar[countLoses]);
 	if (countLoses === 6) {
-		// handle loser
-		console.log('loser')
+		lose();	
 	} else if (numCorrect === randomWord.length) {
+		winGame();
 		//handle winner
-		console.log('winner')
+		console.log('winner');
 
 	}
 } 
 
+function lose(){
+	$('#gallows').addClass('animated fadeOut');
+	console.log('loser');
+};
+
+function winGame() {
+	$('#winner').removeClass('.hidden').fadeIn(1000);
+	$('#playAgain').removeClass('.hidden').fadeIn(1000);
+	$('.rightColumn').hide();
+	$('.leftColumn').hide();
+	$('#guessWord').hide();
+	$('#buttons').hide();
+
+}
+
+$('#playAgain').click(function() {
+	location.reload(true);
+});
 //access nth-child of 'guessWord', change it currentLetter
 function displayLetters(i) {
 	$('.blanks:eq('+ i +')').html(currentLetter);
 }
+
 
 
 /* ********************  Model  *********************/

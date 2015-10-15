@@ -82,7 +82,7 @@ table {
 
 footer {
 	
-	float: left;
+	
 }
 
 .avatar {
@@ -128,19 +128,23 @@ footer {
 	display: inline-block;
 }
 
-
-#AV-1 {
-
+#winner {
+	margin-left: 140px;
+	position: center;
+	width: 60%;
+	right: 0px;
+	border: 1pc solid white;
+	border-radius: 5px;
 }
 
-#AV-2 {
-
+#playAgain {
+	margin-left: 370px;
+	/*display: block;*/
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 3px;
+	border: 2px solid white;
 }
-
-#AV-3 {
-
-}
-
 
 
 
