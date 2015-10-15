@@ -49,6 +49,7 @@ table {
 }
 
 .alphabet {
+	cursor: pointer;
 	font-size: 15px;
 	font-style: bold;
 	margin-left: 15px;
@@ -58,6 +59,7 @@ table {
 	float: left;
 }
 #guessWord {
+	cursor: pointer;
 	margin-left: 100px;
 	padding: 5px;
 	font-size: 20px;
@@ -69,6 +71,7 @@ table {
 }
 
 .letters {
+	cursor: pointer;
 	margin: 1px;
 	padding: 1px;
 	font-style: bold;
@@ -114,6 +117,7 @@ footer {
 }
 
 #getWordButton {
+	cursor: pointer;
 	margin-left: 10px;
 	margin-top: 20px;
 	border-radius: 5px;

@@ -1,17 +1,33 @@
 console.log("JS is linked");
 var $buttons = $('#buttons');
 var currentLetter;
+var chosenPlayer;
+var countLoses = 0;
+var chooseCharacter;
 
 
 $('.avatar').click(function(event){
+	chosenPlayer = $(event.target).removeClass('avatar');
 	$('#selectPage').hide();
 	$('#gamePage').removeClass('hidden');
 	displayButtons();
-})
+	$('.rightColumn').append(chosenPlayer);
+	if(chosenPlayer.attr("id")==="AV-1") {
+		chooseCharacter === "witch";
+	} else if (chosenPlayer.attr("id")==="AV-2") {
+		chooseCharacter === "devil";
+	} else if ( chosenPlayer.attr("id")==="AV-3") {
+		chooseCharacter === "skeleton";
+	}
+});
 
 var wordBank = ["halloween", "ghost", "spectre", "witch", "candycorn", 
 	"vampire", "haunted", "gravestone", "hellraiser", "candyman", 
-	"werewolf", "pennywise"]
+	"werewolf", "pennywise", "ghostyacht", "poltergeist", "devil", 
+	"evil", "elvira", "mummy", "blood", "guts", "pumpkin", "costume",
+	 "belalugosi", "moon", "blackcat", "bewitched", "spell", "horror",
+	 "scream", "gore", "boobies", "warlock", "slenderman", "macabre", 
+	 "monster"]
 
 var randomWord;
 function chooseWord() {
@@ -54,13 +70,56 @@ var displayButtons = function() {
 	})
 
 function checkLetter() {
- for(var i = 0; i < randomWord.length; i++) {
- 	if(currentLetter.toLowerCase() === randomWord.charAt(i)) {
- 		displayLetters(i);
- 		console.log("they are the same letter");
- 	}
- }
+	var letterIsFound = false;
+	for(var i = 0; i < randomWord.length; i++) {
+	 	if(currentLetter.toLowerCase() === randomWord.charAt(i)) {
+	 		displayLetters(i);
+	 		letterIsFound = true;
+	 		//console.log("they are the same letter");
+	 	}
+	} 
+	if (letterIsFound != true) {
+	 		countLoses++;
+	 		console.log(countLoses);
+	 		hangman();
+	 }	
 }
+
+function hangman() {
+	if (chooseCharacter === "witch") {
+		switch(countLoses) {
+			case 1: 
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_1.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_2.png");
+
+			break;
+			case 2:
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_2.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_3.5.png");
+
+			break;
+			case 3:
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_3.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_4.5.png");
+
+			break;
+			case 4:
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_4.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_5.5.png");
+
+			break;
+			case 5:
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_5.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_6.5.png");
+			break;
+
+			case 6:
+				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_6.png");
+				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_blank.png");
+		}
+	
+	}
+} else
 
 //access nth-child of 'guessWord', change it currentLetter
 function displayLetters(i) {
