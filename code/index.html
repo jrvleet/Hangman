@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Hangman</title>
-	  <link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
 </head>
 <body>
@@ -11,67 +11,32 @@
 		<h1>Hangman</h1>
 	</div>
 	<br>
-		<div id="selectPage">
-			<div id="avTable">
-					<img class="avatar" id="AV-1" src="jpegs/Witch/witchWhole_1.png">
-					<img class="avatar" id="AV-2" src="jpegs/Devil/devilWhole_1.png">
-					<img class="avatar" id="AV-3" src="jpegs/Skeleton/skelWhole_1.png">
-			</div>
-		<div class="choose">Choose character to start game</div>
+	<div id="selectPage">
+		<div id="avTable">
+			<img class="avatar" id="AV-1" src="jpegs/Witch/witchWhole_1.png">
+			<img class="avatar" id="AV-2" src="jpegs/Devil/devilWhole_1.png">
+			<img class="avatar" id="AV-3" src="jpegs/Skeleton/skelWhole_1.png">
 		</div>
+		<div class="choose">Choose character to start game</div>
+	</div>
 	<br>
 
-		<div class="hidden" id="gamePage">
-			<div class="leftColumn">
-				<img id="gallows" src="jpegs/Gallows/gallows_update.png">
-			</div>
-				<br>
-					<div class="rightColumn" id="hanged">
-						
-					</div>
-						<br>
-						<footer>
-							<section id="guessWord"></section>
-								<br>
-								<div id="buttons"></div>
-								<br>
-								<div id="getWordButton">
-										get word
-								</div>
-						</footer>
-			</div>
-		<script src="js/data.js"></script>	
+	<div class="hidden" id="gamePage">
+		<div class="leftColumn">
+			<img id="gallows" src="">
+		</div>
+		<br>
+		<div class="rightColumn" id="hanged">
+			<img id="character" src="">
+		</div>
+		<br>
+		<footer>
+			<section id="guessWord"></section>
+			<br>
+			<div id="buttons"></div>
+			<br>
+		</footer>
+	</div>
+	<script src="js/data.js"></script>	
 </body>
 </html>
-									<!-- <table class="alphabet">
-										<tr>
-											<td id="A">A</td>
-											<td id="B">B</td>
-											<td id="C">C</td>
-											<td id="D">D</td>
-											<td id="E">E</td>
-											<td id="F">F</td>
-											<td id="G">G</td>
-											<td id="H">H</td>
-											<td id="I">I</td>
-											<td id="J">J</td>
-											<td id="K">K</td>
-											<td id="L">L</td>
-											<td id="M">M</td>
-										</tr>
-										<tr>
-											<td id="N">N</td>
-											<td id="O">O</td>
-											<td id="P">P</td>
-											<td id="Q">Q</td>
-											<td id="R">R</td>
-											<td id="S">S</td>
-											<td id="T">T</td>
-											<td id="U">U</td>
-											<td id="V">V</td>
-											<td id="W">W</td>
-											<td id="X">X</td>
-											<td id="Y">Y</td>
-											<td id="Z">Z</td>
-										</tr>
-									</table> -->

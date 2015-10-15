@@ -3,22 +3,73 @@ var $buttons = $('#buttons');
 var currentLetter;
 var chosenPlayer;
 var countLoses = 0;
-var chooseCharacter;
+var numCorrect = 0;
+var randomWord;
+// var chooseCharacter;
+
+var images = {
+	'AV-1': {
+		gallows: [
+			'/jpegs/Gallows/gallows_update.png', '/jpegs/Gallows/gallowsWitch_1.png',
+			'/jpegs/Gallows/gallowsWitch_2.png', '/jpegs/Gallows/gallowsWitch_3.png', 
+			'/jpegs/Gallows/gallowsWitch_4.png', '/jpegs/Gallows/gallowsWitch_5.png',
+			'/jpegs/Gallows/gallowsWitch_6.png'
+		],
+		avatar: [
+			'/jpegs/Witch/witchWhole_1.png', '/jpegs/Witch/witch_2.png',
+			'/jpegs/Witch/witch_3.png', '/jpegs/Witch/witch_4.png',
+			'/jpegs/Witch/witch_5.png', '/jpegs/Witch/witch_6.png',
+			'/jpegs/Skeleton/skel_blank.png'
+		]
+	},
+	'AV-2': {
+		gallows: [
+			'/jpegs/Gallows/gallows_update.png', '/jpegs/Gallows/gallowsDevil_1.png',
+			'/jpegs/Gallows/gallowsDevil_2.png', '/jpegs/Gallows/gallowsDevil_3.png', 
+			'/jpegs/Gallows/gallowsDevil_4.png', '/jpegs/Gallows/gallowsDevil_5.png',
+			'/jpegs/Gallows/gallowsDevil_6.png'
+		],
+		avatar: [
+			'/jpegs/Devil/devilWhole_1.png', '/jpegs/Devil/devil_2.png',
+			'/jpegs/Devil/devil_3.png', '/jpegs/Devil/devil_4.png',
+			'/jpegs/Devil/devil_5.png', '/jpegs/Devil/devil_6.png',
+			'/jpegs/Skeleton/skel_blank.png'
+		]
+	},
+	'AV-3': {
+		gallows: [
+			'/jpegs/Gallows/gallows_update.png', '/jpegs/Gallows/gallowsSkel_1.png',
+			'/jpegs/Gallows/gallowsSkel_2.png', '/jpegs/Gallows/gallowsSkel_3.png', 
+			'/jpegs/Gallows/gallowsSkel_4.png', '/jpegs/Gallows/gallowsSkel_5.png',
+			'/jpegs/Gallows/gallowsSkel_6.png'
+		],
+		avatar: [
+			'/jpegs/Skeleton/skelWhole_1.png', '/jpegs/Skeleton/skel_2.png',
+			'/jpegs/Skeleton/skel_3.5.png', '/jpegs/Skeleton/skel_4.5.png',
+			'/jpegs/Skeleton/skel_5.5.png', '/jpegs/Skeleton/skel_6.5.png',
+			'/jpegs/Skeleton/skel_blank.png'
+		]
+	}
+};
+
 
 
 $('.avatar').click(function(event){
-	chosenPlayer = $(event.target).removeClass('avatar');
+	chosenPlayer = $(event.target).attr('id');
 	$('#selectPage').hide();
 	$('#gamePage').removeClass('hidden');
 	displayButtons();
-	$('.rightColumn').append(chosenPlayer);
-	if(chosenPlayer.attr("id")==="AV-1") {
-		chooseCharacter === "witch";
-	} else if (chosenPlayer.attr("id")==="AV-2") {
-		chooseCharacter === "devil";
-	} else if ( chosenPlayer.attr("id")==="AV-3") {
-		chooseCharacter === "skeleton";
-	}
+	chooseWord();
+	blanksFromAnswer();
+
+	hangman();
+		// if(chosenPlayer.attr("id")==="AV-1") {
+		// 	chooseCharacter === "witch";
+		// } else if (chosenPlayer.attr("id")==="AV-2") {
+		// 	chooseCharacter === "devil";
+		// } else if (chosenPlayer.attr("id")==="AV-3") {
+		// 	chooseCharacter === "skeleton";
+		// }
 });
 
 var wordBank = ["halloween", "ghost", "spectre", "witch", "candycorn", 
@@ -27,9 +78,8 @@ var wordBank = ["halloween", "ghost", "spectre", "witch", "candycorn",
 	"evil", "elvira", "mummy", "blood", "guts", "pumpkin", "costume",
 	 "belalugosi", "moon", "blackcat", "bewitched", "spell", "horror",
 	 "scream", "gore", "boobies", "warlock", "slenderman", "macabre", 
-	 "monster"]
+	 "monster", "beast"]
 
-var randomWord;
 function chooseWord() {
 	randomWord = wordBank[Math.floor(Math.random() * wordBank.length)]; 
 	console.log(randomWord);
@@ -37,14 +87,9 @@ function chooseWord() {
 
 function blanksFromAnswer() {
 	for(var i = 0; i < randomWord.length; i++) {
-		$('#guessWord').append($('<span>').html('_ ').addClass('blanks'));
+		$('#guessWord').append($('<span>').html('_').addClass('blanks'));
 	}
 }
-
-$('#getWordButton').click(function(event){
-		chooseWord();
-		blanksFromAnswer();
-	});
 
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -63,11 +108,11 @@ var displayButtons = function() {
 }
 
 //pick a letter, test against letters in word
-	$buttons.click(function(event) {
-		currentLetter = $(event.target).html();
-		checkLetter();
-		console.log(currentLetter);
-	})
+$buttons.click(function(event) {
+	currentLetter = $(event.target).html();
+	checkLetter();
+	hangman();
+})
 
 function checkLetter() {
 	var letterIsFound = false;
@@ -75,51 +120,28 @@ function checkLetter() {
 	 	if(currentLetter.toLowerCase() === randomWord.charAt(i)) {
 	 		displayLetters(i);
 	 		letterIsFound = true;
-	 		//console.log("they are the same letter");
+	 		numCorrect++;
+	 		console.log('numCorrect', numCorrect);
 	 	}
 	} 
-	if (letterIsFound != true) {
+	if (!letterIsFound) {
 	 		countLoses++;
 	 		console.log(countLoses);
-	 		hangman();
 	 }	
 }
 
 function hangman() {
-	if (chooseCharacter === "witch") {
-		switch(countLoses) {
-			case 1: 
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_1.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_2.png");
+	$('#gallows').attr("src", images[chosenPlayer].gallows[countLoses]);
+	$('#character').attr("src", images[chosenPlayer].avatar[countLoses]);
+	if (countLoses === 6) {
+		// handle loser
+		console.log('loser')
+	} else if (numCorrect === randomWord.length) {
+		//handle winner
+		console.log('winner')
 
-			break;
-			case 2:
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_2.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_3.5.png");
-
-			break;
-			case 3:
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_3.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_4.5.png");
-
-			break;
-			case 4:
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_4.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_5.5.png");
-
-			break;
-			case 5:
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_5.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_6.5.png");
-			break;
-
-			case 6:
-				$('#gallows').attr("src", "/jpegs/Gallows/gallowsSkel_6.png");
-				$('#AV-3').attr("src", "/jpegs/Skeleton/skel_blank.png");
-		}
-	
 	}
-} else
+} 
 
 //access nth-child of 'guessWord', change it currentLetter
 function displayLetters(i) {
