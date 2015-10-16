@@ -109,12 +109,12 @@ footer {
 }
 
 .avatar:hover {
-  background-color: #bc3737;
-  color: white;
+	background-color: #bc3737;
+	color: white;
 }
 
 .avatar.empty:hover {
-  background-color: white;
+	background-color: white;
 }
 
 #getWordButton {
