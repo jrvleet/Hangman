@@ -124,12 +124,11 @@ footer {
 	position: center;
 	width: 60%;
 	right: 0px;
-	/*border: 1pc solid white;*/
 	border-radius: 5px;
 }
 
 #playAgain {
-	margin-left: 675px;
+	margin-left: 700px;
 	cursor: pointer;
 	border-radius: 5px;
 	padding: 3px;
@@ -140,7 +139,6 @@ footer {
 	border-radius: 10px;
 	margin-left: 350px;
 }
-
 
 
 
