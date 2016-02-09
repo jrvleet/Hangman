@@ -136,6 +136,7 @@ function hangman() {
 
 function loseGame(){
 	$('#loser').removeClass('.hidden').fadeIn(1000);
+	$('#loser').css('display', "block");
 	$('#playAgain').removeClass('.hidden').fadeIn(1000);
 	$('.rightColumn').hide();
 	$('.leftColumn').hide();
@@ -145,6 +146,7 @@ function loseGame(){
 
 function winGame() {
 	$('#winner').removeClass('.hidden').fadeIn(1000);
+	$('#winner').css('display', "block");
 	$('#playAgain').removeClass('.hidden').fadeIn(1000);
 	$('.rightColumn').hide();
 	$('.leftColumn').hide();

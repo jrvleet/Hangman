@@ -12,6 +12,7 @@ h1 {
 }
 
 body {
+	display: block;
 	background-color: #bf7171;
 }
 
@@ -120,7 +121,7 @@ footer {
 }
 
 #winner {
-	margin-left: 275px;
+	margin: auto;
 	position: center;
 	width: 60%;
 	right: 0px;
@@ -136,8 +137,8 @@ footer {
 }
 
 #loser {
-	border-radius: 10px;
-	margin-left: 350px;
+	margin: auto;
+	border-radius: 5px;
 }
 
 
