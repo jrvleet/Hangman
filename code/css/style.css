@@ -137,7 +137,8 @@ footer {
 }
 
 #loser {
-	margin-left: 375px;
+	margin: auto;
+	/*margin-left: 375px;*/
 }
 
 
