@@ -63,13 +63,6 @@ $('.avatar').click(function(event){
 	blanksFromAnswer();
 
 	hangman();
-		// if(chosenPlayer.attr("id")==="AV-1") {
-		// 	chooseCharacter === "witch";
-		// } else if (chosenPlayer.attr("id")==="AV-2") {
-		// 	chooseCharacter === "devil";
-		// } else if (chosenPlayer.attr("id")==="AV-3") {
-		// 	chooseCharacter === "skeleton";
-		// }
 	});
 
 var wordBank = ["halloween", "ghost", "spectre", "witch", "candycorn", 
@@ -98,8 +91,6 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
 var displayButtons = function() {
 	var letter;
 	for(var i = 0; i < alphabet.length; i++) {
-		//letter = $('div').addClass('letters');
-		//letter.html(alphabet[i]);
 		letter = document.createElement('div');
 		letter.innerHTML = alphabet[i];
 		letter.className = 'letters';
@@ -134,7 +125,7 @@ function hangman() {
 	$('#gallows').attr("src", images[chosenPlayer].gallows[countLoses]);
 	$('#character').attr("src", images[chosenPlayer].avatar[countLoses]);
 	if (countLoses === 6) {
-		lose();	
+		loseGame();	
 	} else if (numCorrect === randomWord.length) {
 		winGame();
 		//handle winner
@@ -143,10 +134,14 @@ function hangman() {
 	}
 } 
 
-function lose(){
-	$('#gallows').addClass('animated fadeOut');
-	console.log('loser');
-};
+function loseGame(){
+	$('#loser').removeClass('.hidden').fadeIn(1000);
+	$('#playAgain').removeClass('.hidden').fadeIn(1000);
+	$('.rightColumn').hide();
+	$('.leftColumn').hide();
+	$('#guessWord').hide();
+	$('#buttons').hide();
+}
 
 function winGame() {
 	$('#winner').removeClass('.hidden').fadeIn(1000);
