@@ -117,7 +117,7 @@ footer {
 	padding: 3px;
 	text-align: center;
 	border: 2px solid white;
-	display: inline-block;
+	display: block;
 }
 
 #winner {
@@ -129,7 +129,7 @@ footer {
 }
 
 #playAgain {
-	margin-left: 700px;
+	margin: auto;
 	cursor: pointer;
 	border-radius: 5px;
 	padding: 3px;

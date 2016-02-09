@@ -138,6 +138,7 @@ function loseGame(){
 	$('#loser').removeClass('.hidden').fadeIn(1000);
 	$('#loser').css('display', "block");
 	$('#playAgain').removeClass('.hidden').fadeIn(1000);
+	$('#playAgain').css('display', "block");
 	$('.rightColumn').hide();
 	$('.leftColumn').hide();
 	$('#guessWord').hide();
@@ -148,6 +149,7 @@ function winGame() {
 	$('#winner').removeClass('.hidden').fadeIn(1000);
 	$('#winner').css('display', "block");
 	$('#playAgain').removeClass('.hidden').fadeIn(1000);
+	$('#playAgain').css('display', "block");
 	$('.rightColumn').hide();
 	$('.leftColumn').hide();
 	$('#guessWord').hide();
